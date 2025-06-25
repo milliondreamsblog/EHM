@@ -8,7 +8,7 @@ import SocialYoutube from'@/assets/social-youtube.svg'
 export const Footer = () => {
   return <footer className="bg-black text-[#BCBCBC] text-sm py-10 text-center">
       <div className="container">
-        <div className="inline-flex relative before:content-[''] before:top-2  before:bottom-0  before:w-full before:h-full before:blur before:bg-[linear-gradient(to_right,_#F87BFF,_#FB92CF,_#FFDD9B,_#C2F0B1,_#2FD8FE)] before:content-[''] before:z-[-1]">
+        <div className="inline-flex relative before:content-[' '] before:top-2  before:bottom-0  before:w-full before:h-full before:blur before:bg-[linear-gradient(to_right,_#F87BFF,_#FB92CF,_#FFDD9B,_#C2F0B1,_#2FD8FE)] before:content-[''] before:z-[-1]">
           <Image src={Ehmlogo} height={40} alt="Logo_img"  className="relative"/>
         </div>
         <nav className="flex flex-col gap-6 mt-6 md:flex md:flex-row md:justify-center">
