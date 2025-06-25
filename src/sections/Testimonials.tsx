@@ -71,31 +71,28 @@ const firstColumn = testimonials.slice(0,3);
 const secondColumn = testimonials.slice(3,6);
 const thirdColumn = testimonials.slice(6,9);
 
-const TestimonialsColumn = (props: { testimonials: typeof testimonials }) => {
-  return (
-    <div className="flex flex-col mt-10 gap-6 [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)]">
-      {props.testimonials.map(({ text, imageSrc, name, username }) => (
-        <div className="card">
-          <div>{text}</div>
-          <div className="flex items-center gap-2 mt-5">
-            <Image 
-              src={imageSrc} 
-              width={40} 
-              height={40} 
-              alt={name} 
-              className="h-10 w-10 rounded-full" 
-            />
-            <div className="flex flex-col">
-              <div className="font-medium tracking-tight leading-5">{name}</div>
-              <div className="tracking-tight leading-5">{username}</div>
-            </div>
+const TestimonialsColumn = (props: { testimonials: typeof testimonials }) => (
+  <div className="flex flex-col mt-10 gap-6 [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)]">
+    {props.testimonials.map((testimonial) => (
+      <div key={testimonial.username} className="card"> {/* Using username as key */}
+        <div>{testimonial.text}</div>
+        <div className="flex items-center gap-2 mt-5">
+          <Image 
+            src={testimonial.imageSrc} 
+            width={40} 
+            height={40} 
+            alt={testimonial.name} 
+            className="h-10 w-10 rounded-full" 
+          />
+          <div className="flex flex-col">
+            <div className="font-medium tracking-tight leading-5">{testimonial.name}</div>
+            <div className="tracking-tight leading-5">{testimonial.username}</div>
           </div>
         </div>
-      ))}
-    </div>
-  );
-};
-
+      </div>
+    ))}
+  </div>
+);
 
 export const Testimonials = () => {
   return <section className="bg-white py-24">
