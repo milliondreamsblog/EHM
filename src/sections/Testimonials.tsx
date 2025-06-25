@@ -8,6 +8,7 @@ import avatar7 from "@/assets/avatar-7.png";
 import avatar8 from "@/assets/avatar-8.png";
 import avatar9 from "@/assets/avatar-9.png";
 import Image from "next/image";
+import { twMerge } from "tailwind-merge";
 
 const testimonials = [
   {
@@ -71,8 +72,8 @@ const firstColumn = testimonials.slice(0,3);
 const secondColumn = testimonials.slice(3,6);
 const thirdColumn = testimonials.slice(6,9);
 
-const TestimonialsColumn = (props: { testimonials: typeof testimonials }) => (
-  <div className="flex flex-col mt-10 gap-6 [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)]">
+const TestimonialsColumn = (props: { className?: string ; testimonials: typeof testimonials }) => (
+  <div className={twMerge("flex flex-col mt-10 gap-6 [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)]" , props.className)}>
     {props.testimonials.map((testimonial) => (
       <div key={testimonial.username} className="card"> {/* Using username as key */}
         <div>{testimonial.text}</div>
@@ -98,6 +99,7 @@ export const Testimonials = () => {
   return <section className="bg-white py-24">
     
     <div className="container">
+      <div className="section-heading">
       <div className="flex justify-center">
         <div className="tag">
             Testinomials
@@ -109,10 +111,11 @@ export const Testimonials = () => {
         <p className="section-body mt-5">
             From intuitive design to powerfull feature, our app has become an essential tool for users around the world
         </p>
+      </div>
         <div className="flex justify-center gap-6">
-            <TestimonialsColumn testimonials={firstColumn} />
-            <TestimonialsColumn testimonials={secondColumn} />
-            <TestimonialsColumn testimonials={thirdColumn} />
+            <TestimonialsColumn testimonials={firstColumn}  />
+            <TestimonialsColumn testimonials={secondColumn} className={"hidden md:flex"}/>
+            <TestimonialsColumn testimonials={thirdColumn} className={"hidden md:flex"}/>
         </div>
       </div>
    
