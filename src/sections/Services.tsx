@@ -53,6 +53,22 @@ const pricingTiers = [
       "Advanced security features",
     ],
   },
+  {
+    title: "Free",
+    image : "src/assets/service/card1.jpg",
+    monthlyPrice: 0,
+    buttonText: "Get started for free",
+    popular: false,
+    inverse: false,
+
+    features: [
+      "Up to 5 project members",
+      "Unlimited tasks and projects",
+      "2GB storage",
+      "Integrations",
+      "Basic support",
+    ],
+  }
 ];
 
 export const Services = () => {
@@ -69,6 +85,7 @@ export const Services = () => {
           {pricingTiers.map(
             ({
               title,
+              image,
               monthlyPrice,
               buttonText,
               popular,
